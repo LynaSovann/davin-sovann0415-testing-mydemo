@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: davin-sovann0415-testing-mydemo-container
-          image: pipejet/davin-sovann0415-testing-mydemo:0
+          image: pipejet/davin-sovann0415-testing-mydemo:1
           ports:
             - containerPort: 3000

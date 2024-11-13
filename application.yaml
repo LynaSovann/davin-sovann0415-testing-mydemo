@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: davin-sovann0415-testing-mydemo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/LynaSovann/davin-sovann0415-testing-mydemo.git
+    targetRevision: main
+    path: manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: davin-sovann0415-testing-mydemo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  revisionHistoryLimit: 5

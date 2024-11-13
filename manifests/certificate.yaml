@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: davin-sovann0415-testing-mydemo-certificate
+  namespace: davin-sovann0415-testing-mydemo
+spec:
+  secretName: davin-sovann0415-testing-mydemo-secret-tls
+  commonName: davin-sovann0415-testing-mydemo.assessify.org
+  dnsNames:
+  - davin-sovann0415-testing-mydemo.assessify.org
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

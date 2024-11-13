@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: davin-sovann0415-testing-mydemo-deployment
+  labels:
+    app: davin-sovann0415-testing-mydemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: davin-sovann0415-testing-mydemo
+  template:
+    metadata:
+      labels:
+        app: davin-sovann0415-testing-mydemo
+    spec:
+      containers:
+        - name: davin-sovann0415-testing-mydemo-container
+          image: pipejet/davin-sovann0415-testing-mydemo:0
+          ports:
+            - containerPort: 3000

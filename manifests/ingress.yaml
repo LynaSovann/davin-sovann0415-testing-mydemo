@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: davin-sovann0415-testing-mydemo-https-ingress
+  namespace: davin-sovann0415-testing-mydemo
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - davin-sovann0415-testing-mydemo.assessify.org
+      secretName: davin-sovann0415-testing-mydemo-secret-tls
+  rules:
+    - host: davin-sovann0415-testing-mydemo.assessify.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: davin-sovann0415-testing-mydemo-service
+                port:
+                  number: 8179
